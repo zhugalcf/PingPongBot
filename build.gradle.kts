@@ -28,6 +28,7 @@ dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-data-jpa")
 	implementation("org.springframework.boot:spring-boot-starter-data-jdbc")
 	implementation("org.springframework.boot:spring-boot-starter-web")
+	//developmentOnly("org.springframework.boot:spring-boot-docker-compose")
 
 	/**
 	 * Database
@@ -35,9 +36,12 @@ dependencies {
 	implementation("org.liquibase:liquibase-core")
 	runtimeOnly("org.postgresql:postgresql")
 
+	/**
+	 * Discord
+	 */
+	implementation("com.discord4j:discord4j-core:3.2.3")
 
 	compileOnly("org.projectlombok:lombok")
-	developmentOnly("org.springframework.boot:spring-boot-docker-compose")
 	annotationProcessor("org.projectlombok:lombok")
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 }

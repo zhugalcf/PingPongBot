@@ -12,9 +12,7 @@ services:
       - ./data:/var/lib/postgresql/data
 
   ping_pong_bot:
-    build:
-      context: .
-      dockerfile: dockerfile.txt
+    build: .
     environment:
       SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/postgres
       SPRING_DATASOURCE_USERNAME: user

@@ -19,3 +19,6 @@ spring:
 
 server:
   port: 8080
+
+discord:
+  token: MTE0MzQ3NTQ4MzM1OTU4MDIwMA.G8OWJ7.PEZMm9KSDPsXKLaf1qyS7YBK8dJizL9ih6F52I

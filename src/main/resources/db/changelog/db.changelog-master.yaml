@@ -1,3 +1,5 @@
 databaseChangeLog:
   - include:
       file: db/changelog/changeset/message_V001__init.sql
+  - include:
+      file: db/changelog/changeset/message_V002__games.sql

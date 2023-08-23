@@ -1,0 +1,30 @@
+# Use a base image with Java and Gradle
+FROM gradle:7.3.3-jdk17 AS build
+
+# Set the working directory
+WORKDIR /app
+
+# Copy the project's files to the container
+COPY . .
+
+EXPOSE 8080
+
+# Build the Spring Boot application using Gradle
+RUN gradle clean build -x test
+
+# Use the official PostgreSQL image
+FROM postgres:latest
+
+# Set environment variables for PostgreSQL
+ENV POSTGRES_DB postgres
+ENV POSTGRES_USER user
+ENV POSTGRES_PASSWORD password
+
+# Expose the PostgreSQL port
+EXPOSE 5432
+
+# Copy the built JAR file from the build stage to the container
+COPY --from=build /app/build/libs/your-application.jar /app.jar
+
+# Start the Spring Boot application when the container starts
+CMD ["java", "-jar", "/app.jar"]

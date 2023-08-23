@@ -5,7 +5,7 @@ plugins {
 }
 
 group = "com.example"
-version = "0.0.1-SNAPSHOT"
+version = "1.0"
 
 java {
 	sourceCompatibility = JavaVersion.VERSION_17
@@ -37,13 +37,26 @@ dependencies {
 	runtimeOnly("org.postgresql:postgresql")
 
 	/**
+	 * Tests
+	 */
+	testImplementation("org.junit.jupiter:junit-jupiter-params:5.9.2")
+	testImplementation("org.assertj:assertj-core:3.24.2")
+	testImplementation("org.springframework.boot:spring-boot-starter-test")
+
+	/**
 	 * Discord
 	 */
-	implementation("com.discord4j:discord4j-core:3.2.3")
+	//implementation("com.discord4j:discord4j-core:3.2.3")
+	implementation("com.discord4j:discord4j-core:3.3.0-M1")
 
-	compileOnly("org.projectlombok:lombok")
-	annotationProcessor("org.projectlombok:lombok")
-	testImplementation("org.springframework.boot:spring-boot-starter-test")
+
+	/**
+	 * Utils & Logging
+	 */
+	implementation("org.slf4j:slf4j-api:2.0.5")
+	implementation("ch.qos.logback:logback-classic:1.4.6")
+	implementation("org.projectlombok:lombok:1.18.26")
+	annotationProcessor("org.projectlombok:lombok:1.18.26")
 }
 
 tasks.withType<Test> {

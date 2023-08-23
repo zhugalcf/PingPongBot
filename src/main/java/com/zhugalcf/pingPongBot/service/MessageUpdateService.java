@@ -4,11 +4,13 @@ import com.zhugalcf.pingPongBot.listener.EventListener;
 import com.zhugalcf.pingPongBot.listener.MessageListener;
 import discord4j.core.event.domain.message.MessageUpdateEvent;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Mono;
 
 @Service
 @RequiredArgsConstructor
+@Slf4j
 public class MessageUpdateService implements EventListener<MessageUpdateEvent> {
 
     private final MessageListener messageListener;
@@ -27,6 +29,7 @@ public class MessageUpdateService implements EventListener<MessageUpdateEvent> {
 
     @Override
     public Mono<Void> handleError(Throwable error) {
+        log.error("Message update event error", error);
         return EventListener.super.handleError(error);
     }
 }

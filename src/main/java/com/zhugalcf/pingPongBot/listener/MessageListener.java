@@ -16,6 +16,6 @@ public class MessageListener {
         if (!eventMessage.getAuthor().get().isBot()){
             return messageService.getResponse(eventMessage);
         }
-        return Mono.just(eventMessage).then();
+        return Mono.empty();
     }
 }

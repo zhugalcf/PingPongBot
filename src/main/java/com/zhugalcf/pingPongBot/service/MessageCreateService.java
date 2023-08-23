@@ -1,19 +1,17 @@
 package com.zhugalcf.pingPongBot.service;
 
-import com.zhugalcf.pingPongBot.entity.UserMessage;
 import com.zhugalcf.pingPongBot.listener.EventListener;
 import com.zhugalcf.pingPongBot.listener.MessageListener;
-import com.zhugalcf.pingPongBot.repository.MessageRepository;
 import discord4j.core.event.domain.message.MessageCreateEvent;
-import discord4j.core.object.entity.Message;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Mono;
 
-import java.time.LocalDateTime;
 
 @Service
 @RequiredArgsConstructor
+@Slf4j
 public class MessageCreateService implements EventListener<MessageCreateEvent> {
 
     private final MessageListener messageListener;
@@ -30,6 +28,7 @@ public class MessageCreateService implements EventListener<MessageCreateEvent> {
 
     @Override
     public Mono<Void> handleError(Throwable error) {
+        log.error("Message create event error", error);
         return EventListener.super.handleError(error);
     }
 }

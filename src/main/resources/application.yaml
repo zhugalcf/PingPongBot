@@ -21,4 +21,4 @@ server:
   port: 8080
 
 discord:
-  token: MTE0MzQ3NTQ4MzM1OTU4MDIwMA.GHpxbF.wV_GlzDHXsYpi_3UqXpgDfF0VqBG-btZXC7QJc
+  token: // enter tour discord api token
